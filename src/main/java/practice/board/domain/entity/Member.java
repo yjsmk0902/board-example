@@ -1,4 +1,4 @@
-package practice.board.domain;
+package practice.board.domain.entity;
 
 
 import lombok.AccessLevel;
@@ -24,7 +24,7 @@ public class Member {
 
     private String email;
 
-    private List<Board> boardList = new ArrayList<>();
+    //private List<Board> boardList = new ArrayList<>();
 
     @Builder
     public Member(String username, String password, String email) {
