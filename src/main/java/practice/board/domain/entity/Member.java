@@ -8,13 +8,14 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 @Entity
 @Table(name = "member")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Member {
+public class Member extends BaseTimeEntity implements Serializable {
     @Id @GeneratedValue
     @Column(name = "member_id")
     private Long id;
@@ -27,6 +28,7 @@ public class Member {
 
     private String email;
 
+//    @OneToMany(mappedBy = "member", fetch = FetchType.LAZY)
 //    private List<Board> boardList = new ArrayList<>();
 
     @Builder

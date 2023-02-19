@@ -32,7 +32,7 @@ public class MemberController {
     @PostMapping("/signup")
     public String createMember(@ModelAttribute("member") Member member) {
         log.info("enter createMember");
-        memberService.join(member);
+//        memberService.join(member);
         return "member/signupResult";
     }
 }
