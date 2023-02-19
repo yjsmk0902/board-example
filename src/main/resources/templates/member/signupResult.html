@@ -9,7 +9,7 @@
     <title>Board Example</title>
   </head>
   <body>
-    <main id="signup-result-main">
+    <main id="signup-result-main" th:object="${member}">
       <h1>회원가입 결과</h1>
       <h2 th:if="${param.status}" th:text="'저장 완료'">저장 상태</h2>
       <div>
@@ -18,7 +18,7 @@
           type="text"
           id="username"
           name="username"
-          th:value="${member.username}"
+          th:value="*{username}"
           readonly
         />
       </div>
@@ -29,7 +29,7 @@
           type="text"
           id="password"
           name="password"
-          th:value="${member.password}"
+          th:value="*{password}"
           readonly
         />
       </div>
@@ -40,7 +40,7 @@
           type="text"
           id="email"
           name="email"
-          th:value="${member.email}"
+          th:value="*{email}"
           readonly
         />
       </div>
