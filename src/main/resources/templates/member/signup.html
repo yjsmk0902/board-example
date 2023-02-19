@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/style.css" />
+
+    <title>Board Example</title>
+  </head>
+  <body>
+    <h1>회원가입</h1>
+    <form id="signup-form" action="signup.html" method="post">
+      <input type="text" placeholder="아이디" id="username" name="username" />
+      <input
+        type="password"
+        placeholder="비밀번호"
+        id="passworde"
+        name="password"
+      />
+      <input
+        type="email"
+        placeholder="name@example.com"
+        id="email"
+        name="email"
+      />
+      <label>
+        <input type="checkbox" value="remember-me" /> 이 계정을 기억하기</label
+      >
+      <div>
+        <button type="submit">가입</button>
+        <button type="button" onclick="location.href='../index.html'">
+          취소
+        </button>
+      </div>
+    </form>
+  </body>
+</html>
