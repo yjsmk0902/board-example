@@ -1,4 +1,4 @@
-package practice.board.entity;
+package practice.board.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
