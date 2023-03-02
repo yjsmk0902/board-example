@@ -20,9 +20,20 @@ public class SignController {
     private final MemberRepository memberRepository;
     private final SignService signService;
 
+
+    @GetMapping("/login")
+    public String login() {
+        return "null";
+    }
+
     @PostMapping("/login")
     public ResponseEntity<SignResponseDto> login(@RequestBody SignRequestDto request) throws Exception {
         return new ResponseEntity<>(signService.login(request), HttpStatus.OK);
+    }
+
+    @GetMapping("/register")
+    public String signup() {
+        return "null";
     }
 
     @PostMapping("/register")
