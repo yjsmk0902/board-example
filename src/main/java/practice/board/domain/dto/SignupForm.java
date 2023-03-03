@@ -3,7 +3,7 @@ package practice.board.domain.dto;
 import lombok.Data;
 
 @Data
-public class SignRequestDto {
+public class SignupForm {
     private Long id;
     private String account;
     private String password;

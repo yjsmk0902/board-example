@@ -11,22 +11,21 @@
   <body>
     <h1>회원가입</h1>
     <form id="signup-form" action="signup.html" th:action method="post">
-      <input type="text" placeholder="아이디" id="username" name="username" />
+      <input type="text" placeholder="아이디" id="id" name="username" />
       <input
         type="password"
         placeholder="비밀번호"
         id="password"
         name="password"
       />
+      <input type="text" placeholder="닉네임" id="username" name="username" />
+      <input type="text" placeholder="이름" id="name" name="username" />
       <input
         type="email"
         placeholder="name@example.com"
         id="email"
         name="email"
       />
-      <label>
-        <input type="checkbox" value="remember-me" /> 이 계정을 기억하기</label
-      >
       <div>
         <button type="submit">가입</button>
         <button type="button" onclick="location.href='../index.html'">

@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class SignResponseDto {
+public class SignResponse {
     private Long id;
     private String account;
     private String username;
@@ -24,7 +24,7 @@ public class SignResponseDto {
 
     private String token;
 
-    public SignResponseDto(Member member) {
+    public SignResponse(Member member) {
         this.id = member.getId();
         this.account = member.getAccount();
         this.username = member.getUsername();

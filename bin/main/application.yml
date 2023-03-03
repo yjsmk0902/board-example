@@ -12,9 +12,15 @@ spring:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.H2Dialect
+
 logging:
   level:
     org:
       hibernate:
       sql: debug
       type: trace
+
+jwt:
+  secret:
+    key: v9y$B&E(H+MbQeThWmZq4t7w!z%C*F-J
+

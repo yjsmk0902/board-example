@@ -6,16 +6,14 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import practice.board.domain.dto.SignRequestDto;
-import practice.board.domain.dto.SignResponseDto;
+import practice.board.domain.dto.SignRequest;
+import practice.board.domain.dto.SignResponse;
 import practice.board.domain.entity.Authority;
 import practice.board.domain.entity.Member;
 import practice.board.repository.MemberRepository;
 import practice.board.security.jwt.JwtProvider;
 
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Optional;
 
 @Service
 @Transactional
@@ -27,7 +25,7 @@ public class SignService {
     private final PasswordEncoder passwordEncoder;
     private final JwtProvider jwtProvider;
 
-    public SignResponseDto login(SignRequestDto request) throws Exception{
+    public SignResponse login(SignRequest request) throws Exception{
         Member member = memberRepository.findByAccount(request.getAccount()).orElseThrow(()
                 -> new BadCredentialsException("잘못된 계정입니다."));
 
@@ -35,7 +33,7 @@ public class SignService {
             throw new BadCredentialsException("잘못된 비밀번호입니다.");
         }
 
-        return SignResponseDto.builder()
+        return SignResponse.builder()
                 .id(member.getId())
                 .account(member.getAccount())
                 .name(member.getName())
@@ -46,7 +44,7 @@ public class SignService {
                 .build();
     }
 
-    public boolean register(SignRequestDto request) throws Exception {
+    public boolean register(SignRequest request) throws Exception {
         try {
             Member member = Member.builder()
                     .account(request.getAccount())
@@ -66,9 +64,9 @@ public class SignService {
         return true;
     }
 
-    public SignResponseDto getMember(String account) throws Exception {
+    public SignResponse getMember(String account) throws Exception {
         Member member = memberRepository.findByAccount(account)
                 .orElseThrow(() -> new Exception("계정을 찾을 수 없습니다."));
-        return new SignResponseDto(member);
+        return new SignResponse(member);
     }
 }
