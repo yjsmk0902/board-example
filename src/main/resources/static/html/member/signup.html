@@ -10,8 +10,13 @@
   </head>
   <body>
     <h1>회원가입</h1>
-    <form id="signup-form" action="signup.html" th:action method="post">
-      <input type="text" placeholder="아이디" id="id" name="username" />
+    <form
+      id="signup-form"
+      action="signup.html"
+      th:action="@{/user}"
+      method="post"
+    >
+      <input type="text" placeholder="아이디" id="account" name="username" />
       <input
         type="password"
         placeholder="비밀번호"

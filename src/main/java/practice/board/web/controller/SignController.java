@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import practice.board.domain.dto.SignRequest;
 import practice.board.domain.dto.SignResponse;
@@ -18,8 +19,8 @@ public class SignController {
     private final SignService signService;
 
     @GetMapping("/login")
-    public String login() {
-        return "null";
+    public String login(Model model) {
+        return null;
     }
 
     @PostMapping("/login")
@@ -28,14 +29,22 @@ public class SignController {
     }
 
     @GetMapping("/register")
-    public String signup() {
-        return "null";
+    public String signup(Model model) {
+        model.addAttribute("signupForm", new SignRequest());
+        return "member/signup";
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Boolean> signup(@RequestBody SignRequest request) throws Exception {
-        return new ResponseEntity<>(signService.register(request), HttpStatus.OK);
+    public String signup(SignRequest request) throws Exception {
+        signService.register(request);
+        return "redirect:/login";
     }
+
+//    Register Test
+//    @PostMapping("/register")
+//    public ResponseEntity<Boolean> signup(@RequestBody SignRequest request) throws Exception {
+//        return new ResponseEntity<>(signService.register(request), HttpStatus.OK);
+//    }
 
     @GetMapping("/user/get")
     public ResponseEntity<SignResponse> getUser(@RequestParam String account) throws Exception {

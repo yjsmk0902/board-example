@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,14 +10,16 @@
   </head>
   <body>
     <h1>회원가입</h1>
-    <form id="signup-form" action="signup.html" method="post">
-      <input type="text" placeholder="아이디" id="username" name="username" />
+    <form id="signup-form" action="signup.html" th:action="@{/register}" method="post">
+      <input type="text" placeholder="아이디" id="account" name="account" />
       <input
         type="password"
         placeholder="비밀번호"
-        id="passworde"
+        id="password"
         name="password"
       />
+      <input type="text" placeholder="닉네임" id="username" name="username" />
+      <input type="text" placeholder="이름" id="name" name="name" />
       <input
         type="email"
         placeholder="name@example.com"
