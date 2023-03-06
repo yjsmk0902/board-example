@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../static/css/style.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
 
     <title>Board Example</title>
   </head>
@@ -13,7 +13,7 @@
     <form
       id="signup-form"
       action="signup.html"
-      th:action="@{/login}"
+      th:action="@{/user}"
       method="post"
     >
       <input type="text" placeholder="아이디" id="account" name="username" />
@@ -23,10 +23,6 @@
         id="password"
         name="password"
       />
-      <button type="submit">로그인</button>
-      <button type="button" onclick="location.href='../index.html'">
-        취소
-      </button>
     </form>
   </body>
 </html>

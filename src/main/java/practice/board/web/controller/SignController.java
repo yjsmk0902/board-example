@@ -21,27 +21,27 @@ public class SignController {
     //signup 회원가입
 
     @GetMapping("/signup")
-    public String signup(Model model) {
-        model.addAttribute("signupForm", new SignRequest());
+    public String signup() {
         return "member/signup";
     }
 
     @PostMapping("/signup")
     public String signup(SignRequest request) throws Exception {
         signService.register(request);
-        return "redirect:/login";
+        return "index";
     }
 
     //Login 로그인
 
     @GetMapping("/login")
-    public String login(Model model) {
-        return null;
+    public String login() {
+        return "member/login";
     }
 
     @PostMapping("/login")
-    public ResponseEntity<SignResponse> login(@RequestBody SignRequest request) throws Exception {
-        return new ResponseEntity<>(signService.login(request), HttpStatus.OK);
+    public String login(SignRequest request) throws Exception {
+        signService.login(request);
+        return "index";
     }
 
     @GetMapping("/user/get")

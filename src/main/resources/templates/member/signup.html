@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../static/css/style.css" />
 
     <title>Board Example</title>
   </head>
   <body>
     <h1>회원가입</h1>
-    <form id="signup-form" action="signup.html" th:action="@{/login}" method="post">
+    <form id="signup-form" action="signup.html" th:action="@{/signup}" method="post">
       <input type="text" placeholder="아이디" id="account" name="account" />
       <input
         type="password"
