@@ -18,6 +18,22 @@ public class SignController {
     private final MemberRepository memberRepository;
     private final SignService signService;
 
+    //signup 회원가입
+
+    @GetMapping("/signup")
+    public String signup(Model model) {
+        model.addAttribute("signupForm", new SignRequest());
+        return "member/signup";
+    }
+
+    @PostMapping("/signup")
+    public String signup(SignRequest request) throws Exception {
+        signService.register(request);
+        return "redirect:/login";
+    }
+
+    //Login 로그인
+
     @GetMapping("/login")
     public String login(Model model) {
         return null;
@@ -27,31 +43,6 @@ public class SignController {
     public ResponseEntity<SignResponse> login(@RequestBody SignRequest request) throws Exception {
         return new ResponseEntity<>(signService.login(request), HttpStatus.OK);
     }
-
-    @GetMapping("/register")
-    public String signup(Model model) {
-        model.addAttribute("signupForm", new SignRequest());
-        return "member/signup";
-    }
-
-    @PostMapping("/register")
-    public String signup(SignRequest request) throws Exception {
-        signService.register(request);
-        return "redirect:/register/result";
-    }
-
-    @GetMapping("/register/result")
-    public String signupResult(Model model) throws Exception {
-        SignResponse member = signService.getMember("abc123");
-        model.addAttribute("member", member);
-        return "member/signupResult";
-    }
-
-//    Register Test
-//    @PostMapping("/register")
-//    public ResponseEntity<Boolean> signup(@RequestBody SignRequest request) throws Exception {
-//        return new ResponseEntity<>(signService.register(request), HttpStatus.OK);
-//    }
 
     @GetMapping("/user/get")
     public ResponseEntity<SignResponse> getUser(@RequestParam String account) throws Exception {
