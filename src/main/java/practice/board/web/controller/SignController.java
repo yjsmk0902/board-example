@@ -37,7 +37,14 @@ public class SignController {
     @PostMapping("/register")
     public String signup(SignRequest request) throws Exception {
         signService.register(request);
-        return "redirect:/login";
+        return "redirect:/register/result";
+    }
+
+    @GetMapping("/register/result")
+    public String signupResult(Model model) throws Exception {
+        SignResponse member = signService.getMember("abc123");
+        model.addAttribute("member", member);
+        return "member/signupResult";
     }
 
 //    Register Test

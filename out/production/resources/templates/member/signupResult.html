@@ -16,21 +16,26 @@
         <label for="username">회원 아이디</label>
         <input
           type="text"
-          id="username"
-          name="username"
-          th:value="*{username}"
+          th:value="*{account}"
           readonly
         />
       </div>
-
       <div>
-        <label for="password">비밀번호</label>
+        <label for="username">닉네임</label>
         <input
-          type="text"
-          id="password"
-          name="password"
-          th:value="*{password}"
-          readonly
+                type="text"
+                th:value="*{username}"
+                readonly
+        />
+      </div>
+      <div>
+        <label for="username">이름</label>
+        <input
+                type="text"
+                id="username"
+                name="username"
+                th:value="*{name}"
+                readonly
         />
       </div>
 
