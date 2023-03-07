@@ -1,10 +1,10 @@
 package practice.board.web.controller;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import practice.board.domain.dto.SignRequest;
 import practice.board.domain.dto.SignResponse;
@@ -13,6 +13,7 @@ import practice.board.web.service.SignService;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class SignController {
 
     private final MemberRepository memberRepository;
@@ -28,7 +29,7 @@ public class SignController {
     @PostMapping("/signup")
     public String signup(SignRequest request) throws Exception {
         signService.register(request);
-        return "index";
+        return "redirect:/";
     }
 
     //Login 로그인
@@ -41,7 +42,12 @@ public class SignController {
     @PostMapping("/login")
     public String login(SignRequest request) throws Exception {
         signService.login(request);
-        return "index";
+        return "redirect:/";
+    }
+
+    @GetMapping("/user")
+    public String userPage() {
+
     }
 
     @GetMapping("/user/get")
