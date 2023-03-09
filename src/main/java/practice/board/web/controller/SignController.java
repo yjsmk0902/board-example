@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import practice.board.domain.dto.SignRequest;
 import practice.board.domain.dto.SignResponse;
@@ -45,9 +46,10 @@ public class SignController {
         return "redirect:/";
     }
 
-    @GetMapping("/user/get")
-    public ResponseEntity<SignResponse> getUser(@RequestParam String account) throws Exception {
-        return new ResponseEntity<>(signService.getMember(account), HttpStatus.OK);
+    @GetMapping("/login/page")
+    public String loginCheck(@RequestParam String account, Model model) throws Exception {
+        model.addAttribute("user", signService.getMember(account));
+        return "member/loginPage";
     }
 
     @GetMapping("/admin/get")
