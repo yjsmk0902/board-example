@@ -8,31 +8,31 @@
 
     <title>Board Example</title>
   </head>
-  <body>
+  <body th:object="${user}">
     <h1>로그인 확인페이지</h1>
     <div>
       <span>아이디:</span>
-      <span>아이디</span>
+      <span th:text="*{account}">아이디</span>
     </div>
     <div>
       <span>닉네임:</span>
-      <span>닉네임</span>
+      <span th:text="*{username}">닉네임</span>
     </div>
     <div>
       <span>이름:</span>
-      <span>이름</span>
+      <span th:text="*{name}">이름</span>
     </div>
     <div>
       <span>이메일:</span>
-      <span>이메일</span>
+      <span th:text="*{email}">이메일</span>
     </div>
     <div>
       <span>Role:</span>
-      <span>Role</span>
+      <span th:text="*{roles}">Role</span>
     </div>
     <div>
       <span>JWT:</span>
-      <span>JWT</span>
+      <span th:text="*{token}">JWT</span>
     </div>
     <button type="button" onclick="location.href='../index.html'">
       홈으로
