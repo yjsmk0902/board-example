@@ -45,11 +45,6 @@ public class SignController {
         return "redirect:/";
     }
 
-    @GetMapping("/user")
-    public String userPage() {
-
-    }
-
     @GetMapping("/user/get")
     public ResponseEntity<SignResponse> getUser(@RequestParam String account) throws Exception {
         return new ResponseEntity<>(signService.getMember(account), HttpStatus.OK);
